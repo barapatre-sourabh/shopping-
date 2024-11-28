@@ -14,7 +14,7 @@ import Cart from './components/Cart'
 import Address from './components/Address'
 import Checkout from './components/Checkout'
 import OrderConfirmation from './components/OrderConfirmation'
-
+import Footer from "./components/Footer";
 const App = () => {
   // const {} = useContext(AppContext)
   return (
@@ -33,6 +33,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/oderconfirmation" element={<OrderConfirmation />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

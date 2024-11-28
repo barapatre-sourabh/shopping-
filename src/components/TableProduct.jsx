@@ -22,28 +22,28 @@ const TableProduct = ({ cart }) => {
     
   return (
     <>
-      <table className="table table-bordered border-primary bg-dark text-center">
+      <table className="table table-bordered border-dark bg-dark text-center">
         <thead>
           <tr>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Product Img
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Title
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Price
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Qty
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Qty++
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               Qty--
             </th>
-            <th scope="col" className="bg-dark text-light">
+            <th scope="col" className="text-dark">
               remove
             </th>
           </tr>
@@ -51,16 +51,16 @@ const TableProduct = ({ cart }) => {
         <tbody>
           {cart?.items?.map((product) => (
             <tr key={product._id}>
-              <th scope="row" className="bg-dark text-light">
+              <th scope="row" className="text-dark">
                 <img
                   src={product.imgSrc}
                   style={{ width: "50px", height: "50px" }}
                 />
               </th>
-              <td className="bg-dark text-light">{product.title}</td>
-              <td className="bg-dark text-light">{product.price}</td>
-              <td className="bg-dark text-light">{product.qty}</td>
-              <td className="bg-dark text-light">
+              <td className="text-dark">{product.title}</td>
+              <td className="text-dark">{product.price}</td>
+              <td className="text-dark">{product.qty}</td>
+              <td className="text-dark">
                 <span
                   className="material-symbols-outlined"
                   onClick={() =>
@@ -76,7 +76,7 @@ const TableProduct = ({ cart }) => {
                   add_circle
                 </span>
               </td>
-              <td className="bg-dark text-light">
+              <td className="text-dark">
                 <span
                   className="material-symbols-outlined"
                   onClick={() => decreaseQty(product?.productId, 1)}
@@ -84,7 +84,7 @@ const TableProduct = ({ cart }) => {
                   do_not_disturb_on
                 </span>
               </td>
-              <td className="bg-dark text-light">
+              <td className="text-dark">
                 <span
                   className="material-symbols-outlined"
                   onClick={() => {
@@ -100,8 +100,8 @@ const TableProduct = ({ cart }) => {
           ))}
 
           <tr>
-            <th scope="row" className="bg-dark text-light"></th>
-            <td className="bg-dark text-light">
+            <th scope="row" className="text-dark"></th>
+            <td className="text-dark">
               {" "}
               <button
                 className="btn btn-primary"
@@ -110,7 +110,7 @@ const TableProduct = ({ cart }) => {
                 Total
               </button>{" "}
             </td>
-            <td className="bg-dark text-light">
+            <td className="text-dark">
               {" "}
               <button
                 className="btn btn-warning"
@@ -119,14 +119,14 @@ const TableProduct = ({ cart }) => {
                 {price}
               </button>
             </td>
-            <td className="bg-dark text-light">
+            <td className="text-dark">
               <button className="btn btn-info" style={{ fontWeight: "bold" }}>
                 {qty}
               </button>
             </td>
-            <td className="bg-dark text-light"></td>
-            <td className="bg-dark text-light"></td>
-            <td className="bg-dark text-light"></td>
+            <td className="text-dark"></td>
+            <td className="text-dark"></td>
+            <td className="text-dark"></td>
           </tr>
         </tbody>
       </table>

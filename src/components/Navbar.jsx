@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import AppContext from "../context/AppContext";
+// import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
+  // const [show, setShow] = useState(false);
   const [searchTerm, setSearchTerm] = useState(" ");
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,14 +31,17 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="nav sticky-top">
+    
+      <div className="nav-sticky-top">
+      <nav>
         <div className="nav_bar">
           <Link
             to={"/"}
             className="left"
             style={{ textDecoration: "none", color: "white" }}
+            
           >
-            <h3>MERN E - Commerce</h3>
+            <h3>Mk-Deals</h3>
           </Link>
           <form className="search_bar" onSubmit={submitHandler}>
             <span className="material-symbols-outlined">search</span>{" "}
@@ -53,7 +58,7 @@ const Navbar = () => {
                 <Link
                   to={"/cart"}
                   type="button"
-                  className="btn btn-primary position-relative mx-3"
+                  className="btn btn-light position-relative mx-3"
                 >
                   <span className="material-symbols-outlined">
                     shopping_cart
@@ -67,11 +72,12 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <Link to={"/profile"} className="btn btn-info mx-3">
+                <Link to={"/profile"} className="btn btn-success
+                 mx-3">
                   profile
                 </Link>
                 <button
-                  className="btn btn-danger mx-3"
+                  className="btn btn-warning mx-3"
                   onClick={() => {
                     logout();
                     navigate("/");
@@ -92,13 +98,15 @@ const Navbar = () => {
                 </Link>
               </>
             )}
+
           </div>
         </div>
+     
 
         {location.pathname == "/" && (
           <div className="sub_bar">
             <div className="items" onClick={() => setFilteredData(products)}>
-              No Filter
+              All
             </div>
             <div className="items" onClick={() => filterbyCategory("mobiles")}>
               Mobiles
@@ -106,22 +114,22 @@ const Navbar = () => {
             <div className="items" onClick={() => filterbyCategory("laptops")}>
               Laptops
             </div>
-            <div className="items" onClick={() => filterbyCategory("cameras")}>
-              Camera's
+            <div className="items" onClick={() => filterbyCategory("smartwatches")}>
+            smartwatches
             </div>
             <div
               className="items"
               onClick={() => filterbyCategory("headphones")}
             >
-              Hedphones
+              Headphones
             </div>
-            <div className="items" onClick={() => filterbyPrice(15999)}>
-              15999
+            <div className="items" onClick={() => filterbyCategory("Home-Appliances")}>
+            Home-Appliances
             </div>
-            <div className="items" onClick={() => filterbyPrice(25999)}>
-              25999
-            </div>
-            <div className="items" onClick={() => filterbyPrice(49999)}>
+            {/* <div className="items" onClick={() => filterbyPrice("Televisions")}>
+              Televisions
+            </div> */}
+            {/* <div className="items" onClick={() => filterbyPrice(49999)}>
               49999
             </div>
             <div className="items" onClick={() => filterbyPrice(69999)}>
@@ -129,10 +137,12 @@ const Navbar = () => {
             </div>
             <div className="items" onClick={() => filterbyPrice(89999)}>
               89999
-            </div>
+            </div> */}
           </div>
         )}
+           </nav>
       </div>
+     
     </>
   );
 };

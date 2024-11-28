@@ -61,7 +61,8 @@ const Cart = () => {
       {cart?.items?.map((product) => (
         <div
           key={product._id}
-          className="container p-3 bg-dark my-5 text-center"
+          className="container p-3 bg-white my-5 text-center "
+          style={{ borderRadius: "10px"}}
         >
           <div
             style={{
@@ -78,13 +79,14 @@ const Cart = () => {
                   width: "100px",
                   height: "100px",
                   borderRadius: "10px",
+                
                 }}
               />
             </div>
             <div className="cart_des">
-              <h2>{product.title}</h2>
-              <h4>{product.price}</h4>
-              <h4>Qty :- {product.qty}</h4>
+              <h2 style={{color:"black"}}>{product.title}</h2>
+              <h4 style={{color:"black"}}>{product.price}</h4>
+              <h4 style={{color:"black"}}>Qty :- {product.qty}</h4>
             </div>
             <div className="cart_action">
               <button

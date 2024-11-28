@@ -15,7 +15,7 @@ const ShowProduct = () => {
             d-flex justify-content-center align-items-center"
             >
               <div
-                className="card bg-dark text-light text-center"
+                className="card bg-white text-light text-center"
                 style={{ width: "18rem" }}
               >
                 <Link
@@ -27,21 +27,24 @@ const ShowProduct = () => {
                     className="card-img-top"
                     alt="..."
                     style={{
+                      backgroundColor:"black",
                       width: "200px",
                       height: "200px",
                       borderRadius: "10px",
-                      border: "2px solid yellow",
+                      border: "2px solid black",
                     }}
                   />
                 </Link>
                 <div className="card-body">
-                  <h5 className="card-title">{product.title}</h5>
+                  <h5 className="card-title" style={{color:"black"}}>{product.title}</h5>
+                  {/* <h5 className="card-title" style={{color:"white"}}>{product.reviews}</h5> */}
                   <div className="my-3">
-                    <button className="btn btn-primary mx-3">
+                    <button className="btn btn-dark mx-2">
                       {product.price} {"₹"}
                     </button>
+                    
                     <button
-                      className="btn btn-warning"
+                      className="btn btn-success button-spacing"
                       onClick={() =>
                         addToCart(
                           product._id,

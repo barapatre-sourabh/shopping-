@@ -16,7 +16,7 @@ const RelatedProduct = ({ category }) => {
 
   return (
     <>
-      <div className="container text-center">
+      <div className="container text-dark text-center">
         <h1>Related Product</h1>
         <div className="container  d-flex justify-content-center align-items-center">
           <div className="row container d-flex justify-content-center align-items-center my-5">
@@ -27,7 +27,7 @@ const RelatedProduct = ({ category }) => {
             d-flex justify-content-center align-items-center"
               >
                 <div
-                  className="card bg-dark text-light text-center"
+                  className="card bg-transparent text-dark text-center"
                   style={{ width: "18rem" }}
                 >
                   <Link
@@ -42,7 +42,7 @@ const RelatedProduct = ({ category }) => {
                         width: "200px",
                         height: "200px",
                         borderRadius: "10px",
-                        border: "2px solid yellow",
+                        border: "3px solid black",
                       }}
                     />
                   </Link>

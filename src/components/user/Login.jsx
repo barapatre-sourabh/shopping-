@@ -73,7 +73,17 @@ const Login = () => {
               Login
             </button>
           </div>
+          
         </form>
+        <div className="d-grid col-6 mx-auto my-3">
+            <button type="submit" className="btn btn-warning"
+            onClick={() => {
+           
+              navigate("/");
+            }}>
+             Admin
+            </button>
+          </div>
       </div>
     </>
   );

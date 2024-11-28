@@ -35,7 +35,7 @@ const Address = () => {
       phoneNumber
     );
 
-    console.log("address adedd ",result)
+    console.log("address added ",result)
 
     if (result.success) {
       navigate("/checkout");
@@ -58,15 +58,15 @@ const Address = () => {
       <div
         className="container my-3 p-4"
         style={{
-          border: "2px solid yellow",
+          border: "2px solid black",
           borderRadius: "10px",
         }}
       >
-        <h1 className="text-center">Shipping Address</h1>
+        <h1 className="text-center text-dark" >Shipping Address</h1>
         <form onSubmit={submitHandler} className="my-3">
           <div className="row">
             <div className="mb-3 col-md-4 ">
-              <label htmlFor="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label text-dark">
                 Full Name
               </label>
               <input
@@ -80,7 +80,7 @@ const Address = () => {
               />
             </div>
             <div className="mb-3 col-md-4">
-              <label htmlFor="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label text-dark">
                 Country
               </label>
               <input
@@ -94,7 +94,7 @@ const Address = () => {
               />
             </div>
             <div className="mb-3 col-md-4">
-              <label htmlFor="exampleInputPassword1" className="form-label">
+              <label htmlFor="exampleInputPassword1" className="form-label text-dark">
                 State
               </label>
               <input
@@ -110,7 +110,7 @@ const Address = () => {
 
           <div className="row">
             <div className="mb-3 col-md-4 ">
-              <label htmlFor="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label text-dark">
                 City
               </label>
               <input
@@ -124,7 +124,7 @@ const Address = () => {
               />
             </div>
             <div className="mb-3 col-md-4">
-              <label htmlFor="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label text-dark">
                 Pincode
               </label>
               <input
@@ -138,7 +138,7 @@ const Address = () => {
               />
             </div>
             <div className="mb-3 col-md-4">
-              <label htmlFor="exampleInputPassword1" className="form-label">
+              <label htmlFor="exampleInputPassword1" className="form-label text-dark">
                 PhoneNumber
               </label>
               <input
@@ -154,7 +154,7 @@ const Address = () => {
 
           <div className="row">
             <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">
+              <label htmlFor="exampleInputPassword1" className="form-label text-dark">
                 Address/Nearby
               </label>
               <textarea

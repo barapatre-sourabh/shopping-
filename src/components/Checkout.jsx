@@ -37,7 +37,7 @@ const Checkout = () => {
       const { orderId, amount: orderAmount } = orderRepons.data;
 
       var options = {
-        key: "rzp_test_gHH711O4gcSjCq", // Enter the Key ID generated from the Dashboard
+        key: "rzp_test_VuoUBJyMn4v6zG", // Enter the Key ID generated from the Dashboard
         amount: orderAmount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: "INR",
         name: "Web Dev Mastery",
@@ -91,24 +91,24 @@ const Checkout = () => {
       <div className="container  my-3">
         <h1 className="text-center">Order Summary</h1>
 
-        <table className="table table-bordered border-primary bg-dark">
+        <table className="table table-bordered border-dark bg-light">
           <thead className="bg-dark">
             <tr>
-              <th scope="col" className="bg-dark text-light text-center">
+              <th scope="col" className="bg-light text-dark text-center">
                 Product Details
               </th>
 
-              <th scope="col" className="bg-dark text-light text-center">
+              <th scope="col" className="bg-light text-dark text-center">
                 Shipping Address
               </th>
             </tr>
           </thead>
           <tbody className="bg-dark">
             <tr>
-              <td className="bg-dark text-light">
+              <td className="bg-light text-dark">
                 <TableProduct cart={cart} />
               </td>
-              <td className="bg-dark text-light">
+              <td className="bg-light text-dark">
                 <ul style={{ fontWeight: "bold" }}>
                   <li>Name : {userAddress?.fullName}</li>
                   <li>Phone : {userAddress?.phoneNumber}</li>

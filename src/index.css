@@ -1,43 +1,60 @@
 body{
-  background-color: black;
+
+  background-color: rgb(242, 225, 204);
   color: white;
  
 }
+/* Custom scrollbar styles for WebKit browsers */
+body::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
 
-body::-webkit-scrollbar{
-  display: none;
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners for the handle */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
 }
 .nav{
   width: 100%;
 }
+
 .nav_bar{
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background-color: rgb(70, 25, 113);
+  background-color: rgb(240, 138, 14);
 }
+
 
 .search_bar{
   display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: rgb(248, 163, 60);
     border-radius: 20px;
     padding: 10px;
     width: 30%;
 }
 .search_bar input{
   border: none;
-  background-color: black;
-  color: white;
+  background-color:rgb(250, 230, 203);
+  color: rgb(47, 41, 41);
   width: 400px;
 }
 
 .search_bar input::placeholder{
   font-weight: bold;
-  color: white;
+  color: black;
 }
 .search_bar input:focus{
   outline: none;
@@ -48,18 +65,86 @@ body::-webkit-scrollbar{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: blueviolet;
+  background-color: rgb(207, 125, 37);
 }
 .sub_bar .items{
   padding: 10px;
   font-weight: bold;
 }
 .sub_bar .items:hover{
-  background-color: black;
+  background-color: rgb(239, 172, 84);
   cursor: pointer;
 }
 
 td{
   vertical-align:middle;
   cursor: pointer;
+}
+.button-spacing {
+  margin-left: 10px; 
+  margin-top: 10px;
+  /* Adjust the value as needed */
+}
+
+footer {
+  padding: 30px 20px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+footer .banner {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .banner .title {
+  text-align: center;
+}
+footer .banner .title h1 {
+  font-size: 40px;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+footer .banner .title p {
+  color: #a2783a;
+  font-family: "Alex Brush", cursive;
+  font-size: 24px;
+}
+footer .banner .tag {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+footer .banner .tag div {
+  display: flex;
+  gap: 5px;
+}
+footer .banner .tag div input {
+  flex: 1;
+  border-radius: 8px;
+  padding: 6px;
+  background: transparent;
+  border: 1px solid #fff7ea;
+}
+footer .banner .tag div input:focus {
+  outline: none;
+}
+footer .banner .tag p {
+  text-align: center;
+}
+footer .banner .tag div button {
+  background: #fff7ea;
+  border: 1px solid #fff7ea;
+  padding: 7px 15px;
+  border-radius: 8px;
+}
+@media (max-width: 500px) {
+  footer .banner .tag div {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
