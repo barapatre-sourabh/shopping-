@@ -13,6 +13,7 @@ const AppState = (props) => {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticatedA, setIsAuthenticatedA] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const [user, setUser] = useState();
   const [cart, setCart] = useState([]);
@@ -79,6 +80,35 @@ const AppState = (props) => {
     // console.log("user register ",api)
   };
 
+   // register admin
+   const adminRegister = async (name, email, password) => {
+    const api = await axios.post(
+      `${url}/admin/adminRegister`,
+      { name, email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    // alert(api.data.message)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+
+    return api.data;
+    // console.log("user register ",api)
+  };
+
   // login user
   const login = async (email, password) => {
     const api = await axios.post(
@@ -111,6 +141,40 @@ const AppState = (props) => {
     return api.data;
   };
 
+  
+  // login admin
+  const adminLogin = async (email, password) => {
+    const api = await axios.post(
+      `${url}/admin/adminLogin`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    // alert(api.data.message)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+
+    // console.log("user login ",api.data)
+    setToken(api.data.token);
+    setIsAuthenticatedA(true);
+    localStorage.setItem("token", api.data.token);
+    return api.data;
+  };
+
+
   // logout user
   const logout = () => {
     setIsAuthenticated(false);
@@ -140,6 +204,19 @@ const AppState = (props) => {
     });
     // console.log("user profile ",api.data);
     setUser(api.data.user);
+  };
+
+   // user profile
+   const adminProfile = async () => {
+    const api = await axios.get(`${url}/admin/adminProfile`, {
+      headers: {
+        "Content-Type": "Application/json",
+        Auth: token,
+      },
+      withCredentials: true,
+    });
+    // console.log("user profile ",api.data);
+    setAdmin(api.data.user);
   };
 
   // add To Cart
@@ -332,6 +409,54 @@ const AppState = (props) => {
     setUserOrder(api.data)
     
   };
+
+  const addProduct = async (title,description,price,category,qty,imgSrc) => {
+    const api = await axios.post(
+      `${url}/product/add`,
+      { title,description,price,category,qty,imgSrc },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    // alert(api.data.message)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+
+    return api.data;
+    // console.log("product register ",api)
+  };
+  // Function to delete a product by ID
+  const deleteProductById = async (productId) => {
+    try {
+      const response = await axios.delete( 
+        `${url}/product/${productId}`, // Use the actual productId here
+        {
+          headers: {
+            "Content-Type": "application/json", // Corrected casing
+            Auth: token, // Include the token for authentication
+          },
+          withCredentials: true,
+        }
+      );
+      return response.data; // Return the response data
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      return { success: false }; // Return a failure response
+    }
+  };
+
 console.log("user order = ", userOrder);
 
   return (
@@ -339,11 +464,15 @@ console.log("user order = ", userOrder);
       value={{
         products,
         register,
+        adminRegister,
         login,
+        adminLogin,
         url,
         token,
         setIsAuthenticated,
+        setIsAuthenticatedA,
         isAuthenticated,
+        isAuthenticatedA,
         filteredData,
         setFilteredData,
         logout,
@@ -356,6 +485,8 @@ console.log("user order = ", userOrder);
         shippingAddress,
         userAddress,
         userOrder,
+        addProduct,
+        deleteProductById,
       }}
     >
       {props.children}

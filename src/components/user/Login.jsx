@@ -79,7 +79,7 @@ const Login = () => {
             <button type="submit" className="btn btn-warning"
             onClick={() => {
            
-              navigate("/");
+              navigate("/adminLogin");
             }}>
              Admin
             </button>

@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { setFilteredData, products, logout, isAuthenticated, cart } =
+  const { setFilteredData, products, logout,isAuthenticatedA, isAuthenticated, cart } =
     useContext(AppContext);
   // console.log("user cart = ",cart)
 
@@ -76,6 +76,10 @@ const Navbar = () => {
                  mx-3">
                   profile
                 </Link>
+                </>
+            )}  {(isAuthenticated ||isAuthenticatedA )&& (
+              <>
+
                 <button
                   className="btn btn-warning mx-3"
                   onClick={() => {
@@ -88,7 +92,7 @@ const Navbar = () => {
               </>
             )}
 
-            {!isAuthenticated && (
+            {!isAuthenticated && !isAuthenticatedA && (
               <>
                 <Link to={"/login"} className="btn btn-secondary mx-3">
                   login
@@ -103,7 +107,7 @@ const Navbar = () => {
         </div>
      
 
-        {location.pathname == "/" && (
+        {location.pathname == ("/"||"/alterProduct") && (
           <div className="sub_bar">
             <div className="items" onClick={() => setFilteredData(products)}>
               All

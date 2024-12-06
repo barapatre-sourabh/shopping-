@@ -3,11 +3,11 @@ import { useState } from "react";
 import AppContext from "../../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
-const AdminLogin = () => {
-  const { adminLogin } = useContext(AppContext);
-  const navigate = useNavigate();
+const AdminRegister = () => {
+  const {adminRegister } = useContext(AppContext);
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    
+    name: "",
     email: "",
     password: "",
   });
@@ -15,16 +15,17 @@ const AdminLogin = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const {  email, password } = formData;
+  const { name, email, password } = formData;
   const submitHandler = async (e) => {
     e.preventDefault();
     // alert("Your form has been submited")
 
-    const result = await adminLogin( email, password);
+   const result = await adminRegister(name, email, password);
 
-    if (result.success) {
-      navigate("/adminDashboard");
-    }
+   
+   if(result.success){
+    navigate('/adminLogin')
+   }
 
     // console.log(formData);
   };
@@ -38,9 +39,22 @@ const AdminLogin = () => {
           borderRadius: "10px",
         }}
       >
-        <h1 className="text-center text-dark">Admin Login</h1>
+        <h1 className="text-center"> AdminRegister</h1>
         <form onSubmit={submitHandler} className="my-3">
-          
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Name
+            </label>
+            <input
+              name="name"
+              value={formData.name}
+              onChange={onChangerHandler}
+              type="text"
+              className="form-control"
+              id="exampleInputEmail13"
+              aria-describedby="emailHelp"
+            />
+          </div>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email
@@ -70,15 +84,13 @@ const AdminLogin = () => {
           </div>
           <div className="d-grid col-6 mx-auto my-3">
             <button type="submit" className="btn btn-primary">
-              Login
+              AdminRegister
             </button>
           </div>
-          
         </form>
-       
       </div>
     </>
   );
 };
 
-export default AdminLogin;
+export default AdminRegister;
