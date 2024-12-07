@@ -92,7 +92,7 @@ const AlterProduct = () => {
                                             <div className="my-3">
                                             <button
                                                 className="btn btn-warning button-spacing"
-                                                onClick={() => navigate(`/`)} // Pass the product ID here
+                                                onClick={() => navigate(`/productRegister`)} // Pass the product ID here
                                             >
                                                Update
                                             </button>

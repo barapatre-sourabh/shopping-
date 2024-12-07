@@ -70,7 +70,7 @@ const AdminDashboard = () => {
           </div>
           </div>
 
-      <div className="section">
+      {/* <div className="section">
         <h2></h2>
         <div className="d-grid col-6 mx-auto my-3">
             <button className="btn btn-warning"
@@ -78,18 +78,10 @@ const AdminDashboard = () => {
             style={{fontWeight:'bold'}}
             >Update Product</button>
           </div>
-          </div>
+          </div> */}
          
 
-      <div className="section">
-        <h2></h2>
-          <div className="d-grid col-6 mx-auto my-3">
-            <button className="btn btn-warning"
-            onClick={()=>navigate('/')}
-            style={{fontWeight:'bold'}}
-            >Remove Admin</button>
-          </div>
-    </div>
+    
     </div>
   );
 };

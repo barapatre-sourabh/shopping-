@@ -20,9 +20,9 @@ const Navbar = () => {
       )
     );
   };
-  const filterbyPrice = (price) => {
-    setFilteredData(products.filter((data) => data.price >= price));
-  };
+  // const filterbyPrice = (price) => {
+  //   setFilteredData(products.filter((data) => data.price >= price));
+  // };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -42,8 +42,10 @@ const Navbar = () => {
             
           >
             <h3>Mk-Deals</h3>
+            
           </Link>
-          <form className="search_bar" onSubmit={submitHandler}>
+          {isAuthenticated && (
+          <form className="search_bar"  onSubmit={submitHandler}>
             <span className="material-symbols-outlined">search</span>{" "}
             <input
               value={searchTerm}
@@ -51,7 +53,7 @@ const Navbar = () => {
               type="text"
               placeholder="Search Products..."
             />
-          </form>
+          </form>)}
           <div className="right">
             {isAuthenticated && (
               <>
@@ -107,7 +109,7 @@ const Navbar = () => {
         </div>
      
 
-        {location.pathname == ("/"||"/alterProduct") && (
+        {location.pathname == "/" && (
           <div className="sub_bar">
             <div className="items" onClick={() => setFilteredData(products)}>
               All

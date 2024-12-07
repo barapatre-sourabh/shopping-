@@ -29,7 +29,7 @@ const AppState = (props) => {
         },
         withCredentials: true,
       });
-      console.log(api.data.products);
+      // console.log(api.data.products);
       setProducts(api.data.products);
       setFilteredData(api.data.products);
       userProfile();
@@ -457,7 +457,9 @@ const AppState = (props) => {
     }
   };
 
-console.log("user order = ", userOrder);
+// console.log("user order = ", userOrder);
+
+
 
   return (
     <AppContext.Provider
