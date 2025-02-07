@@ -140,6 +140,37 @@ const AppState = (props) => {
     localStorage.setItem("token", api.data.token);
     return api.data;
   };
+ 
+  const verifyOTP= async (userId,otp) => {
+    const api = await axios.post(
+      `${url}/user/verifyOTP`,
+      { userId,otp },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    // alert(api.data.message)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+
+    // console.log("user login ",api.data)
+   
+    setIsAuthenticated(true);
+   
+    return api.data;
+  };
 
   
   // login admin
@@ -468,6 +499,7 @@ const AppState = (props) => {
         register,
         adminRegister,
         login,
+        verifyOTP,
         adminLogin,
         url,
         token,

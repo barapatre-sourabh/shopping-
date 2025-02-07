@@ -24,7 +24,7 @@ const Register = () => {
 
    
    if(result.success){
-    navigate('/login')
+    navigate('/verifyOTP/'+result.data.userId)
    }
 
     // console.log(formData);

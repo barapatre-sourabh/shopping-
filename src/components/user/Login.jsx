@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import AppContext from "../../context/AppContext";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const { login } = useContext(AppContext);
   const navigate = useNavigate();
@@ -73,7 +72,7 @@ const Login = () => {
               Login
             </button>
           </div>
-          
+          <Link to ="/forgot-password">Forgot-Password</Link>
         </form>
         <div className="d-grid col-6 mx-auto my-3">
             <button type="submit" className="btn btn-warning"

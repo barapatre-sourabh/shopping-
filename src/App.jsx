@@ -20,6 +20,9 @@ import OrderConfirmation from './components/OrderConfirmation'
 import Footer from "./components/Footer";
 import ProductRegister from "./components/product/ProductRegister";
 import AlterProduct from "./components/product/AlterProduct";
+import ForgotPassword from "./components/user/ForgotPassword";
+import ResetPassword from "./components/user/ResetPassword";
+import OTPVerification from "./components/user/OTPVerification";
 // import UpdateProduct from "./components/product/UpdateProduct";
 const App = () => {
   // const {} = useContext(AppContext)
@@ -33,7 +36,11 @@ const App = () => {
         <Route path="/product/search/:term" element={<SearchProduct />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verifyOTP/:id" element={<OTPVerification />} />
+
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/adminRegister" element={<AdminRegister />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
